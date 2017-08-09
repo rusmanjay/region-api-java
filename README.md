@@ -1,5 +1,5 @@
 # region-api-java
-Run in on the project's root folder
+Run it on the project's root folder
 ```
 $ mvn spring-boot:run
 ```
