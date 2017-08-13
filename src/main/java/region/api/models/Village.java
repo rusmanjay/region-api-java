@@ -34,12 +34,12 @@ public class Village {
 		this.id = id;
 	}
 
-	public Integer getDistrictId() {
+	public Integer getDistrict_id() {
 		return district_id;
 	}
 
-	public void setDistrictId(Integer districtId) {
-		this.district_id = districtId;
+	public void setDistrict_id(Integer district_id) {
+		this.district_id = district_id;
 	}
 
 	public String getName() {

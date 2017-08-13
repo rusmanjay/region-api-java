@@ -37,7 +37,7 @@ public class DistrictController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
 	public District update(@PathVariable Integer id, @RequestParam Integer regency_id, @RequestParam String name) {
 		District district = districtRepository.findOne(id);
-		district.setRegencyId(regency_id);
+		district.setRegency_id(regency_id);
 		district.setName(name);
 		districtRepository.save(district);
 		return district;

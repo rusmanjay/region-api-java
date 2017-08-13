@@ -37,7 +37,7 @@ public class RegencyController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
 	public Regency update(@PathVariable Integer id, @RequestParam Integer province_id, @RequestParam String name) {
 		Regency regency = regencyRepository.findOne(id);
-		regency.setProvinceId(province_id);
+		regency.setProvince_id(province_id);
 		regency.setName(name);
 		regencyRepository.save(regency);
 		return regency;

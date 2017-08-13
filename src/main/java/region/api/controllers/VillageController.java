@@ -37,7 +37,7 @@ public class VillageController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
 	public Village update(@PathVariable Long id, @RequestParam Integer district_id, @RequestParam String name) {
 		Village village = villageRepository.findOne(id);
-		village.setDistrictId(district_id);
+		village.setDistrict_id(district_id);
 		village.setName(name);
 		villageRepository.save(village);
 		return village;

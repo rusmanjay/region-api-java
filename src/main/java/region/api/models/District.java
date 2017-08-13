@@ -34,12 +34,12 @@ public class District {
 		this.id = id;
 	}
 
-	public Integer getRegencyId() {
+	public Integer getRegency_id() {
 		return regency_id;
 	}
 
-	public void setRegencyId(Integer regencyId) {
-		this.regency_id = regencyId;
+	public void setRegency_id(Integer regency_id) {
+		this.regency_id = regency_id;
 	}
 
 	public String getName() {
