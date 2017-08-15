@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import region.api.models.District;
+import region.api.models.Regency;
 import region.api.repository.DistrictRepository;
+import region.api.repository.RegencyRepository;
 
 @RestController
 @RequestMapping("/district")
@@ -16,6 +18,9 @@ public class DistrictController {
 
 	@Autowired
 	DistrictRepository districtRepository;
+	
+	@Autowired
+	RegencyRepository regencyRepository;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Iterable<District> findAll() {
@@ -29,15 +34,17 @@ public class DistrictController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public District create(@RequestParam Integer id, @RequestParam Integer regency_id, @RequestParam String name) {
-		District district = new District(id, regency_id, name);
+		Regency regency = regencyRepository.findOne(regency_id);
+		District district = new District(id, regency, name);
 		districtRepository.save(district);
 		return district;
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
 	public District update(@PathVariable Integer id, @RequestParam Integer regency_id, @RequestParam String name) {
+		Regency regency = regencyRepository.findOne(regency_id);
 		District district = districtRepository.findOne(id);
-		district.setRegency_id(regency_id);
+		district.setRegency(regency);
 		district.setName(name);
 		districtRepository.save(district);
 		return district;
