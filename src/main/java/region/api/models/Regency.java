@@ -1,7 +1,14 @@
 package region.api.models;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -10,19 +17,26 @@ public class Regency {
 
 	@Id
 	private Integer id;
-	
-	private Integer province_id;
-	
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "province_id", referencedColumnName = "id")
+	private Province province;
+
+	@Column(nullable = false)
 	private String name;
+	
+	@OneToMany(targetEntity = District.class, fetch = FetchType.EAGER)
+	@JoinColumn(name = "regency_id", referencedColumnName = "id")
+	private List<District> district;
 
 	public Regency() {
 
 	}
 
-	public Regency(Integer id, Integer provinceId, String name) {
+	public Regency(Integer id, Province province, String name) {
 		super();
 		this.id = id;
-		this.province_id = provinceId;
+		this.province = province;
 		this.name = name;
 	}
 
@@ -34,12 +48,12 @@ public class Regency {
 		this.id = id;
 	}
 
-	public Integer getProvince_id() {
-		return province_id;
+	public Province getProvince() {
+		return province;
 	}
 
-	public void setProvince_id(Integer province_id) {
-		this.province_id = province_id;
+	public void setProvince(Province province) {
+		this.province = province;
 	}
 
 	public String getName() {

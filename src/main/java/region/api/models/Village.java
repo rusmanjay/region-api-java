@@ -1,7 +1,10 @@
 package region.api.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -10,19 +13,22 @@ public class Village {
 
 	@Id
 	private Long id;
-	
-	private Integer district_id;
-	
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "district_id", referencedColumnName = "id")
+	private District district;
+
+	@Column(nullable = false)
 	private String name;
 
 	public Village() {
 
 	}
 
-	public Village(Long id, Integer districtId, String name) {
+	public Village(Long id, District district, String name) {
 		super();
 		this.id = id;
-		this.district_id = districtId;
+		this.district = district;
 		this.name = name;
 	}
 
@@ -34,12 +40,12 @@ public class Village {
 		this.id = id;
 	}
 
-	public Integer getDistrict_id() {
-		return district_id;
+	public District getDistrict() {
+		return district;
 	}
 
-	public void setDistrict_id(Integer district_id) {
-		this.district_id = district_id;
+	public void setDistrict(District district) {
+		this.district = district;
 	}
 
 	public String getName() {

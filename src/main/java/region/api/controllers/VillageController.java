@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import region.api.models.District;
 import region.api.models.Village;
+import region.api.repository.DistrictRepository;
 import region.api.repository.VillageRepository;
 
 @RestController
@@ -16,6 +18,9 @@ public class VillageController {
 
 	@Autowired
 	VillageRepository villageRepository;
+	
+	@Autowired
+	DistrictRepository districtRepository;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Iterable<Village> findAll() {
@@ -29,15 +34,17 @@ public class VillageController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public Village create(@RequestParam Long id, @RequestParam Integer district_id, @RequestParam String name) {
-		Village village = new Village(id, district_id, name);
+		District district = districtRepository.findOne(district_id);
+		Village village = new Village(id, district, name);
 		villageRepository.save(village);
 		return village;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
 	public Village update(@PathVariable Long id, @RequestParam Integer district_id, @RequestParam String name) {
+		District district = districtRepository.findOne(district_id);
 		Village village = villageRepository.findOne(id);
-		village.setDistrict_id(district_id);
+		village.setDistrict(district);
 		village.setName(name);
 		villageRepository.save(village);
 		return village;
