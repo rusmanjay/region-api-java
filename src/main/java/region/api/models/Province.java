@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="provinces")
 public class Province {
@@ -22,6 +24,7 @@ public class Province {
 	
 	@OneToMany(targetEntity = Regency.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "province_id", referencedColumnName = "id")
+	@JsonIgnore
 	private List<Regency> regency;
 
 	public Province() {

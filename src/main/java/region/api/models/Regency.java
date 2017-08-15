@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="regencies")
 public class Regency {
@@ -18,15 +20,16 @@ public class Regency {
 	@Id
 	private Integer id;
 
+	@Column(nullable = false)
+	private String name;
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "province_id", referencedColumnName = "id")
 	private Province province;
 
-	@Column(nullable = false)
-	private String name;
-	
 	@OneToMany(targetEntity = District.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "regency_id", referencedColumnName = "id")
+	@JsonIgnore
 	private List<District> district;
 
 	public Regency() {
@@ -48,6 +51,14 @@ public class Regency {
 		this.id = id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Province getProvince() {
 		return province;
 	}
@@ -56,11 +67,11 @@ public class Regency {
 		this.province = province;
 	}
 
-	public String getName() {
-		return name;
+	public List<District> getDistrict() {
+		return district;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDistrict(List<District> district) {
+		this.district = district;
 	}
 }

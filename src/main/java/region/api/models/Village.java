@@ -14,12 +14,12 @@ public class Village {
 	@Id
 	private Long id;
 
+	@Column(nullable = false)
+	private String name;
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "district_id", referencedColumnName = "id")
 	private District district;
-
-	@Column(nullable = false)
-	private String name;
 
 	public Village() {
 
@@ -40,19 +40,19 @@ public class Village {
 		this.id = id;
 	}
 
-	public District getDistrict() {
-		return district;
-	}
-
-	public void setDistrict(District district) {
-		this.district = district;
-	}
-
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public District getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(District district) {
+		this.district = district;
 	}
 }
