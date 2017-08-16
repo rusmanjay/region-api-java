@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -27,7 +26,7 @@ public class District {
 	@JoinColumn(name = "regency_id", referencedColumnName = "id")
 	private Regency regency;
 
-	@OneToMany(targetEntity = Village.class, fetch = FetchType.EAGER)
+	@OneToMany(targetEntity = Village.class)
 	@JoinColumn(name = "district_id", referencedColumnName = "id")
 	@JsonIgnore
 	private List<Village> village;

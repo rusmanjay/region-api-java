@@ -1,9 +1,9 @@
 package region.api.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import region.api.models.District;
 
-public interface DistrictRepository extends CrudRepository<District, Integer> {
+public interface DistrictRepository extends PagingAndSortingRepository<District, Integer> {
 
 }
