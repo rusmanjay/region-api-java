@@ -2,4 +2,4 @@
 .project*
 .settings/
 target/
-src/main/resources/aplication.properties
+src/main/resources/application.properties
