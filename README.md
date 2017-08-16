@@ -1,7 +1,7 @@
 # region-api-java
 1. Create new database
 
-2. Create file `aplication.properties` under folder `src/main/resources/`
+2. Create file `application.properties` under folder `src/main/resources/`
 ```
 server.port=server_port (default 8080)
 
