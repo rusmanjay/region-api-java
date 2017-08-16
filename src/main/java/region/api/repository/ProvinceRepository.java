@@ -1,9 +1,9 @@
 package region.api.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import region.api.models.Province;
 
-public interface ProvinceRepository extends CrudRepository<Province, Integer> {
+public interface ProvinceRepository extends PagingAndSortingRepository<Province, Integer> {
 
 }

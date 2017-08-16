@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -22,7 +21,7 @@ public class Province {
 	@Column(nullable = false)
 	private String name;
 	
-	@OneToMany(targetEntity = Regency.class, fetch = FetchType.EAGER)
+	@OneToMany(targetEntity = Regency.class)
 	@JoinColumn(name = "province_id", referencedColumnName = "id")
 	@JsonIgnore
 	private List<Regency> regency;
