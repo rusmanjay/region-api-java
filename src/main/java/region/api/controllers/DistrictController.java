@@ -25,22 +25,22 @@ public class DistrictController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public District find(@PathVariable Integer id) {
+	public District find(@PathVariable String id) {
 		return districtService.findOne(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public District create(@RequestParam Integer id, @RequestParam Integer regency_id, @RequestParam String name) {
+	public District create(@RequestParam String id, @RequestParam String regency_id, @RequestParam String name) {
 		return districtService.create(id, regency_id, name);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-	public District update(@PathVariable Integer id, @RequestParam Integer regency_id, @RequestParam String name) {
+	public District update(@PathVariable String id, @RequestParam String regency_id, @RequestParam String name) {
 		return districtService.update(id, regency_id, name);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable Integer id) {
+	public void delete(@PathVariable String id) {
 		districtService.delete(id);
 	}
 }

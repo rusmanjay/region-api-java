@@ -23,18 +23,18 @@ public class DistrictServiceImpl implements DistrictService {
 		return districtRepository.findAll(pagable);
 	}
 
-	public District findOne(Integer id) {
+	public District findOne(String id) {
 		return districtRepository.findOne(id);
 	}
 
-	public District create(Integer id, Integer regencyId, String name) {
+	public District create(String id, String regencyId, String name) {
 		Regency regency = regencyRepository.findOne(regencyId);
 		District district = new District(id, regency, name);
 		districtRepository.save(district);
 		return district;
 	}
 
-	public District update(Integer id, Integer regencyId, String name) {
+	public District update(String id, String regencyId, String name) {
 		Regency regency = regencyRepository.findOne(regencyId);
 		District district = districtRepository.findOne(id);
 		district.setRegency(regency);
@@ -43,7 +43,7 @@ public class DistrictServiceImpl implements DistrictService {
 		return district;
 	}
 
-	public void delete(Integer id) {
+	public void delete(String id) {
 		districtRepository.delete(id);
 	}
 }

@@ -17,7 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Regency {
 
 	@Id
-	private Integer id;
+	@Column(nullable = false, length = 4)
+	private String id;
 
 	@Column(nullable = false)
 	private String name;
@@ -35,18 +36,18 @@ public class Regency {
 
 	}
 
-	public Regency(Integer id, Province province, String name) {
+	public Regency(String id, Province province, String name) {
 		super();
 		this.id = id;
 		this.province = province;
 		this.name = name;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -4,6 +4,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import region.api.models.Province;
 
-public interface ProvinceRepository extends PagingAndSortingRepository<Province, Integer> {
+public interface ProvinceRepository extends PagingAndSortingRepository<Province, String> {
 
 }

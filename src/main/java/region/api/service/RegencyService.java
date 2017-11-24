@@ -8,12 +8,12 @@ import region.api.models.Regency;
 public interface RegencyService {
 
 	Page<Regency> findAll(Pageable pagable);
-	
-	Regency findOne(Integer id);
-	
-	Regency create(Integer id, Integer provinceId, String name);
 
-	Regency update(Integer id, Integer provinceId, String name);
+	Regency findOne(String id);
 	
-	void delete(Integer id);
+	Regency create(String id, String provinceId, String name);
+
+	Regency update(String id, String provinceId, String name);
+	
+	void delete(String id);
 }

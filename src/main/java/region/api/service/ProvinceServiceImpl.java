@@ -18,24 +18,24 @@ public class ProvinceServiceImpl implements ProvinceService {
 		return provinceRepository.findAll(pageable);
 	}
 
-	public Province findOne(Integer id) {
+	public Province findOne(String id) {
 		return provinceRepository.findOne(id);
 	}
 
-	public Province create(Integer id, String name) {
+	public Province create(String id, String name) {
 		Province province = new Province(id, name);
 		provinceRepository.save(province);
 		return province;
 	}
 
-	public Province update(Integer id, String name) {
+	public Province update(String id, String name) {
 		Province province = provinceRepository.findOne(id);
 		province.setName(name);
 		provinceRepository.save(province);
 		return province;
 	}
 
-	public void delete(Integer id) {
+	public void delete(String id) {
 		provinceRepository.delete(id);
 	}
 }

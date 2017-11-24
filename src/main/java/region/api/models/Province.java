@@ -16,7 +16,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Province {
 
 	@Id
-	private Integer id;
+	@Column(nullable = false, length = 2)
+	private String id;
 
 	@Column(nullable = false)
 	private String name;
@@ -30,17 +31,17 @@ public class Province {
 
 	}
 
-	public Province(Integer id, String name) {
+	public Province(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 	
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	

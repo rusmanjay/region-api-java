@@ -23,18 +23,18 @@ public class VillageServiceImpl implements VillageService {
 		return villageRepository.findAll(pagable);
 	}
 
-	public Village findOne(Long id) {
+	public Village findOne(String id) {
 		return villageRepository.findOne(id);
 	}
 
-	public Village create(Long id, Integer districtId, String name) {
+	public Village create(String id, String districtId, String name) {
 		District district = districtRepository.findOne(districtId);
 		Village village = new Village(id, district, name);
 		villageRepository.save(village);
 		return village;
 	}
 
-	public Village update(Long id, Integer districtId, String name) {
+	public Village update(String id, String districtId, String name) {
 		District district = districtRepository.findOne(districtId);
 		Village village = villageRepository.findOne(id);
 		village.setDistrict(district);
@@ -43,7 +43,7 @@ public class VillageServiceImpl implements VillageService {
 		return village;
 	}
 
-	public void delete(Long id) {
+	public void delete(String id) {
 		villageRepository.delete(id);
 	}
 }

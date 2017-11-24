@@ -8,12 +8,12 @@ import region.api.models.District;
 public interface DistrictService {
 
 	Page<District> findAll(Pageable pagable);
+
+	District findOne(String id);
 	
-	District findOne(Integer id);
+	District create(String id, String regency_id, String name);
 	
-	District create(Integer id, Integer regency_id, String name);
+	District update(String id, String regency_id, String name);
 	
-	District update(Integer id, Integer regency_id, String name);
-	
-	void delete(Integer id);
+	void delete(String id);
 }

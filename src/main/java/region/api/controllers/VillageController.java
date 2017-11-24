@@ -25,22 +25,22 @@ public class VillageController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Village find(@PathVariable Long id) {
+	public Village find(@PathVariable String id) {
 		return villageService.findOne(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Village create(@RequestParam Long id, @RequestParam Integer district_id, @RequestParam String name) {
+	public Village create(@RequestParam String id, @RequestParam String district_id, @RequestParam String name) {
 		return villageService.create(id, district_id, name);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-	public Village update(@PathVariable Long id, @RequestParam Integer district_id, @RequestParam String name) {
+	public Village update(@PathVariable String id, @RequestParam String district_id, @RequestParam String name) {
 		return villageService.update(id, district_id, name);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable Long id) {
+	public void delete(@PathVariable String id) {
 		villageService.delete(id);
 	}
 }

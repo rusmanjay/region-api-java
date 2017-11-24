@@ -9,11 +9,11 @@ public interface VillageService {
 
 	Page<Village> findAll(Pageable pagable);
 	
-	Village findOne(Long id);
+	Village findOne(String id);
 	
-	Village create(Long id, Integer districtId, String name);
+	Village create(String id, String districtId, String name);
 	
-	Village update(Long id, Integer districtId, String name);
+	Village update(String id, String districtId, String name);
 	
-	void delete(Long id);
+	void delete(String id);
 }

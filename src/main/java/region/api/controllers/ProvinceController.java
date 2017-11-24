@@ -25,22 +25,22 @@ public class ProvinceController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Province find(@PathVariable Integer id) {
+	public Province find(@PathVariable String id) {
 		return provinceService.findOne(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Province create(@RequestParam Integer id, @RequestParam String name) {
+	public Province create(@RequestParam String id, @RequestParam String name) {
 		return provinceService.create(id, name);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-	public Province update(@PathVariable Integer id, @RequestParam String name) {
+	public Province update(@PathVariable String id, @RequestParam String name) {
 		return provinceService.update(id, name);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable Integer id) {
+	public void delete(@PathVariable String id) {
 		provinceService.delete(id);
 	}
 }

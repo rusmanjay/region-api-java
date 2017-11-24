@@ -25,22 +25,22 @@ public class RegencyController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Regency find(@PathVariable Integer id) {
+	public Regency find(@PathVariable String id) {
 		return regencyService.findOne(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Regency create(@RequestParam Integer id, @RequestParam Integer province_id, @RequestParam String name) {
+	public Regency create(@RequestParam String id, @RequestParam String province_id, @RequestParam String name) {
 		return regencyService.create(id, province_id, name);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-	public Regency update(@PathVariable Integer id, @RequestParam Integer province_id, @RequestParam String name) {
+	public Regency update(@PathVariable String id, @RequestParam String province_id, @RequestParam String name) {
 		return regencyService.update(id, province_id, name);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable Integer id) {
+	public void delete(@PathVariable String id) {
 		regencyService.delete(id);
 	}
 }

@@ -23,18 +23,18 @@ public class RegencyServiceImpl implements RegencyService {
 		return regencyRepository.findAll(pagable);
 	}
 
-	public Regency findOne(Integer id) {
+	public Regency findOne(String id) {
 		return regencyRepository.findOne(id);
 	}
 
-	public Regency create(Integer id, Integer provinceId, String name) {
+	public Regency create(String id, String provinceId, String name) {
 		Province province = this.provinceRepository.findOne(provinceId);
 		Regency regency = new Regency(id, province, name);
 		regencyRepository.save(regency);
 		return regency;
 	}
 
-	public Regency update(Integer id, Integer provinceId, String name) {
+	public Regency update(String id, String provinceId, String name) {
 		Province province = provinceRepository.findOne(provinceId);
 		Regency regency = regencyRepository.findOne(id);
 		regency.setProvince(province);
@@ -43,7 +43,7 @@ public class RegencyServiceImpl implements RegencyService {
 		return regency;
 	}
 
-	public void delete(Integer id) {
+	public void delete(String id) {
 		regencyRepository.delete(id);
 	}
 }

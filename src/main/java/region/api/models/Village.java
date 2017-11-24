@@ -12,7 +12,8 @@ import javax.persistence.Table;
 public class Village {
 
 	@Id
-	private Long id;
+	@Column(nullable = false, length = 10)
+	private String id;
 
 	@Column(nullable = false)
 	private String name;
@@ -25,18 +26,18 @@ public class Village {
 
 	}
 
-	public Village(Long id, District district, String name) {
+	public Village(String id, District district, String name) {
 		super();
 		this.id = id;
 		this.district = district;
 		this.name = name;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

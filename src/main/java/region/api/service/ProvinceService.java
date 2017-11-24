@@ -8,12 +8,12 @@ import region.api.models.Province;
 public interface ProvinceService {
 
 	Page<Province> findAll(Pageable pageable);
+
+	Province findOne(String id);
 	
-	Province findOne(Integer id);
+	Province create(String id, String name);
 	
-	Province create(Integer id, String name);
+	Province update(String id, String name);
 	
-	Province update(Integer id, String name);
-	
-	void delete(Integer id);
+	void delete(String id);
 }
